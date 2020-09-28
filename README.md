@@ -9,8 +9,15 @@ Then download the files in this repository and run the following example:
 ```
 cd spirou-template/data/EpsEri/
 
-python spirou_template.py --pattern=2*t.fits --rv_file=EpsEri.rdb --output=EpsEri_template.fits -pvn
+python ../../spirou_template.py --pattern=2*t.fits --rv_file=EpsEri.rdb --output=EpsEri_template.fits -pv
+```
 
+The following options are available:
+```
+-p for plotting
+-v for verbose
+-m to combine by median instead of mean
+-n to normalize final template by continuum
 ```
 
 Check if your results are similar to the template provided in the directory `expected_results`, or just compare the template with the one below:
