@@ -19,7 +19,10 @@ The following options are available:
 -m to combine by median instead of mean
 -n to normalize final template by continuum
 ```
+Notice that we provide the file `EpsEri.rdb` containing the source radial velocities for the spectra in `data/EpsEri/*t.fits`, which have been measured using the CCF method. To calculate the template for a different set of files, one needs to calculate the RVs first and build a new `.rdb` file. The units in the`.rdb` file are RJD=BJD-2400000 and km/s.
 
-Check if your results are similar to the template provided in the directory `EpsEri/TEMPLATES/`, or just compare the plot below:
+One can check if the results are similar to the template provided in the directory `data/EpsEri/TEMPLATES/`, or just compare the plot below:
+
+![Alt text](Figures/EpsEri.png?raw=true "Title")
 
 
