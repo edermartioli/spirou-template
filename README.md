@@ -14,6 +14,9 @@ python ../../spirou_template.py --pattern=2*t.fits --rv_file=EpsEri.rdb --output
 
 The following options are available:
 ```
+--pattern for input data pattern (e.g., *e.fits or *t.fits)
+--rv_file for input filename containing RV data for all input spectra
+--output for output FITS filename to save final template spectrum
 -p for plotting
 -v for verbose
 -m to combine by median instead of mean
