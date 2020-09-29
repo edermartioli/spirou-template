@@ -58,4 +58,5 @@ inputdata = sorted(glob.glob(options.pattern))
 
 master_spectrum = spiroulib.template_using_fit(inputdata, options.rv_file, median=options.median, normalize_by_continuum=options.normalize, verbose=options.verbose, plot=options.plot)
 
-spiroulib.write_spectrum_to_fits(master_spectrum, options.output, header=fits.getheader(inputdata[0]), wavekey='wl_template', fluxkey='flux_template', fluxerrkey='fluxerr_template')
+if options.output != "" :
+    spiroulib.write_spectrum_to_fits(master_spectrum, options.output, header=fits.getheader(inputdata[0]), wavekey='wl_template', fluxkey='flux_template', fluxerrkey='fluxerr_template')

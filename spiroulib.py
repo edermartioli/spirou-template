@@ -420,7 +420,7 @@ def pre_process(spectrum, apply_BERV=True, source_rv=0., normalize=1, nan_pos_fi
 
 
 ########################################################################
-def subtract_median(flux, wl, sig_clip = 0.0, fit=False, verbose=False, median=True, subtract=False, interpolate_nans=False):
+def build_template(flux, wl, sig_clip = 0.0, fit=False, verbose=False, median=True, subtract=False, interpolate_nans=False):
     """
         Compute the median flux along the time axis
         Divide each exposure by the median
@@ -531,9 +531,6 @@ def template_using_fit(inputdata, rv_filename, median=False, normalize_by_contin
     # store input list of rv data files
     loc['rv_filename'] = rv_filename
 
-    # load vector of rv doppler shifts in the rv data files
-    rv_loc = load_rv_shifts_from_rdb(rv_filename)
-
     #############################
     # Load bjd, airmass, SNR, and spectra data
     #############################
@@ -563,7 +560,12 @@ def template_using_fit(inputdata, rv_filename, median=False, normalize_by_contin
     airmass = np.array(airmass, dtype=float)
     snr = np.array(snr, dtype=float)
     berv = np.array(berv, dtype=float)
-    rvs = rv_loc['CCFRV']
+    if rv_filename != "":
+        # load vector of rv doppler shifts in the rv data file
+        rv_loc = load_rv_shifts_from_rdb(rv_filename)
+        rvs = rv_loc['CCFRV']
+    else :
+        rvs = np.zeros_like(berv)
     rvshifts = 1.0 + (berv - rvs)/(constants.c / 1000.)
     ###############################
     
@@ -573,7 +575,6 @@ def template_using_fit(inputdata, rv_filename, median=False, normalize_by_contin
     loc["berv"] = berv
     loc["berv_mean"] = np.mean(berv)
     loc["berv_sigma"] = np.std(berv)
-    loc["rv_data"] = rv_loc
     loc["rv_mean"] = np.mean(rvs)
     loc["rv_sigma"] = np.std(rvs)
     
@@ -644,10 +645,10 @@ def template_using_fit(inputdata, rv_filename, median=False, normalize_by_contin
             spectra_fluxerr = np.array(spectra_fluxerr, dtype=float)
 
             # calculate median spectra and residuals
-            reduced_spectra = subtract_median(spectra_flux, spectra_wl, fit=True, median=median, subtract=True)
+            reduced_spectra = build_template(spectra_flux, spectra_wl, fit=True, median=median, subtract=True)
         
             # calculate median spectra using new calibrated fluxes-- 2nd pass
-            reduced_spectra_2 = subtract_median(reduced_spectra["flux"], spectra_wl, fit=True, median=median, subtract=True)
+            reduced_spectra_2 = build_template(reduced_spectra["flux"], spectra_wl, fit=True, median=median, subtract=True)
 
             if plot :
                 sig_clip = 3
