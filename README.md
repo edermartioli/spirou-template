@@ -1,6 +1,6 @@
 # spirou-template
 
-`spirou-template` is a module to generate a SPIRou template spectrum out of a set of spectra for the same object.
+`spirou-template` is a module to generate a SPIRou template spectrum built from a stack of several spectra of the same object.
 
 To start using `spirou-template`, first make sure you have Python 3 installed via anaconda or if you have a custom installation of Python make sure you have all the dependencies installed.
 
