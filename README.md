@@ -25,4 +25,4 @@ One can check if the results are similar to the template provided in the directo
 
 ![Alt text](Figures/EpsEri.png?raw=true "Title")
 
-Figure above presents the final template spectrum in red, and in blue are the input spectra and residuals. The green curves show the +-3 x sigma, where sigma is given by the standard deviation between all input spectra.  
+Figure above presents the final template spectrum in red, and in blue are the input spectra and residuals (I suggest one to zoom in to see these details when displaying with the pyplot window). The green curves show the +/- 3 x sigma, where sigma is given by the standard deviation between all input spectra.  
