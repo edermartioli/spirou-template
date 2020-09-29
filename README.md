@@ -12,15 +12,15 @@ cd spirou-template/data/EpsEri/
 python ../../spirou_template.py --pattern=2*t.fits --rv_file=EpsEri.rdb --output=EpsEri_template.fits -pv
 ```
 
-The following options are available:
+The following input options are avaialble:
 ```
 --pattern for input data pattern (e.g., *e.fits or *t.fits)
---rv_file for input filename containing RV data for all input spectra
+--rv_file for input filename containing RVs of input spectra (if not provided, RVs will be set to 0)
 --output for output FITS filename to save final template spectrum
 -p for plotting
 -v for verbose
 -m to combine by median instead of mean
--n to normalize final template by continuum
+-n to normalize final template by continuum (this option uses default parameters for continuum detection, which can only be modified in the source codes)
 ```
 Notice that we provide the file `EpsEri.rdb` containing the source radial velocities for the spectra in `data/EpsEri/*t.fits`, which have been measured using the CCF method. To calculate the template for a different set of files, one needs to calculate the RVs first and build a new `.rdb` file. The units in the`.rdb` file are RJD=BJD-2400000 and km/s.
 
