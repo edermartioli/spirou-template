@@ -25,4 +25,4 @@ One can check if the results are similar to the template provided in the directo
 
 ![Alt text](Figures/EpsEri.png?raw=true "Title")
 
-
+Figure above presents the combined spectrum in red, and in blue the individal input spectra and residuals. 
