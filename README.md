@@ -20,4 +20,6 @@ The following options are available:
 -n to normalize final template by continuum
 ```
 
-Check if your results are similar to the template provided in the directory `expected_results`, or just compare the template with the one below:
+Check if your results are similar to the template provided in the directory `EpsEri/TEMPLATES/`, or just compare the plot below:
+
+
