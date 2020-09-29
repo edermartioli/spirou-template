@@ -25,4 +25,4 @@ One can check if the results are similar to the template provided in the directo
 
 ![Alt text](Figures/EpsEri.png?raw=true "Title")
 
-Figure above presents the combined spectrum in red, and in blue the individal input spectra and residuals. 
+Figure above presents the final template spectrum in red, and in blue are the input spectra and residuals. The green curves show the +-3 x sigma, where sigma is given by the standard deviation between all input spectra.  
